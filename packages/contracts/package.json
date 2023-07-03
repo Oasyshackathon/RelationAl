@@ -11,14 +11,18 @@
     "preupgrade": "npm run test-$npm_config_name",
     "upgrade": "npx hardhat run scripts/$npm_config_name/upgrade.ts --network $npm_config_network",
     "script": "npx hardhat run scripts/$npm_config_name/utils/$npm_config_file.ts --network $npm_config_network",
-    "size": "npx hardhat size-contracts"
+    "size": "npx hardhat size-contracts",
+    "format": "prettier --write '**/*.ts' '**/*.json' '**/*.sol' --ignore-path .gitignore"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@openzeppelin/hardhat-upgrades": "^1.28.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "dotenv": "^16.3.1",
     "hardhat": "^2.16.1",
-    "hardhat-contract-sizer": "^2.10.0"
+    "hardhat-contract-sizer": "^2.10.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-solidity": "^1.1.3"
   },
   "dependencies": {
     "@openzeppelin/contracts-upgradeable": "^4.9.2"
