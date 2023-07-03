@@ -1,5 +1,5 @@
-import { ethers, upgrades } from "hardhat";
 import { LT_PUZZLE_PROXY_ADDRESS } from "../const";
+import { ethers, upgrades } from "hardhat";
 
 async function main() {
   const addr = LT_PUZZLE_PROXY_ADDRESS;
@@ -22,7 +22,7 @@ async function main() {
   await ltPuzzle.deployed();
   console.log(
     "Upgraded LTPuzzle implementation:",
-    await upgrades.erc1967.getImplementationAddress(addr)
+    await upgrades.erc1967.getImplementationAddress(addr),
   );
 
   console.log("Completed upgrade");

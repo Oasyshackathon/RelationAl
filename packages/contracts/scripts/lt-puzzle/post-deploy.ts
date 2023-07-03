@@ -1,5 +1,5 @@
-import { ethers } from "hardhat";
 import { LT_PUZZLE_PROXY_ADDRESS } from "../const";
+import { ethers } from "hardhat";
 
 async function main() {
   const addr = LT_PUZZLE_PROXY_ADDRESS;

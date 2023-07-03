@@ -1,14 +1,11 @@
-import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@openzeppelin/hardhat-upgrades";
 import "hardhat-contract-sizer";
+import { HardhatUserConfig } from "hardhat/config";
 
 require("dotenv").config();
 
-const {
-  DEV_PRIVATE_KEY,
-  LOCAL_PRIVATE_KEY,
-} = process.env;
+const { DEV_PRIVATE_KEY, LOCAL_PRIVATE_KEY } = process.env;
 
 const config: HardhatUserConfig = {
   solidity: {
