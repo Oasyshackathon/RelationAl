@@ -1,0 +1,8 @@
+{
+  "extends": ["next/core-web-vitals", "prettier"],
+  "plugins": ["unused-imports"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "unused-imports/no-unused-imports": "error"
+  }
+}

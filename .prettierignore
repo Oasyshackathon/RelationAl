@@ -1,0 +1,12 @@
+# common
+**/node_modules/**
+**/package-lock.json
+package-lock.json
+
+# interface
+packages/interface/.next/
+
+# contracts
+packages/contracts/typechain-types/
+packages/contracts/artifacts/
+packages/contracts/cache/

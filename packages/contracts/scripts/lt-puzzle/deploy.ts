@@ -22,7 +22,7 @@ async function main() {
   console.log("Deployed LTPuzzleProxy address: ", ltPuzzle.address);
   console.log(
     "LTPuzzle implementation deployed to:",
-    await upgrades.erc1967.getImplementationAddress(ltPuzzle.address)
+    await upgrades.erc1967.getImplementationAddress(ltPuzzle.address),
   );
 
   console.log("Completed deployment");

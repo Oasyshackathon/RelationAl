@@ -10,93 +10,90 @@ import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/U
 import {ILTPuzzle} from "./ILTPuzzle.sol";
 
 contract LTPuzzle is
-    Initializable,
-    ILTPuzzle,
-    ERC721Upgradeable,
-    AccessControlEnumerableUpgradeable,
-    UUPSUpgradeable
+  Initializable,
+  ILTPuzzle,
+  ERC721Upgradeable,
+  AccessControlEnumerableUpgradeable,
+  UUPSUpgradeable
 {
-    // --------------------------------------------------------------------------------
-    // State
-    // --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
+  // State
+  // --------------------------------------------------------------------------------
 
-    /// @custom:oz-renamed-from UPGRADER_ROLE
-    bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
+  /// @custom:oz-renamed-from UPGRADER_ROLE
+  bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
 
-    /// @custom:oz-renamed-from GAME_ROLE
-    bytes32 public constant GAME_ROLE = keccak256("GAME_ROLE");
+  /// @custom:oz-renamed-from GAME_ROLE
+  bytes32 public constant GAME_ROLE = keccak256("GAME_ROLE");
 
-    // --------------------------------------------------------------------------------
-    // Initialize
-    // --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
+  // Initialize
+  // --------------------------------------------------------------------------------
 
-    /// @dev Constructor
-    /// @custom:oz-upgrades-unsafe-allow constructor
-    constructor() {
-        _disableInitializers();
-    }
+  /// @dev Constructor
+  /// @custom:oz-upgrades-unsafe-allow constructor
+  constructor() {
+    _disableInitializers();
+  }
 
-    /// @dev Initialize
-    function initialize() public initializer {
-        __ERC721_init("LTPuzzle", "LTP");
-        __AccessControlEnumerable_init();
-        __UUPSUpgradeable_init();
+  /// @dev Initialize
+  function initialize() public initializer {
+    __ERC721_init("LTPuzzle", "LTP");
+    __AccessControlEnumerable_init();
+    __UUPSUpgradeable_init();
 
-        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(UPGRADER_ROLE, msg.sender);
-        _grantRole(GAME_ROLE, msg.sender);
-    }
+    _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+    _grantRole(UPGRADER_ROLE, msg.sender);
+    _grantRole(GAME_ROLE, msg.sender);
+  }
 
-    /// @dev Supports interface
-    /// @param interfaceId interface ID
-    function supportsInterface(
-        bytes4 interfaceId
+  /// @dev Supports interface
+  /// @param interfaceId interface ID
+  function supportsInterface(
+    bytes4 interfaceId
+  )
+    public
+    view
+    override(
+      IERC165Upgradeable,
+      ERC721Upgradeable,
+      AccessControlEnumerableUpgradeable
     )
-        public
-        view
-        override(
-            IERC165Upgradeable,
-            ERC721Upgradeable,
-            AccessControlEnumerableUpgradeable
-        )
-        returns (bool)
-    {
-        return super.supportsInterface(interfaceId);
-    }
+    returns (bool)
+  {
+    return super.supportsInterface(interfaceId);
+  }
 
-    // --------------------------------------------------------------------------------
-    // Modifier
-    // --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
+  // Modifier
+  // --------------------------------------------------------------------------------
 
-    // --------------------------------------------------------------------------------
-    // Getter
-    // --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
+  // Getter
+  // --------------------------------------------------------------------------------
 
-    // --------------------------------------------------------------------------------
-    // Setter
-    // --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
+  // Setter
+  // --------------------------------------------------------------------------------
 
-    // --------------------------------------------------------------------------------
-    // Main Logic
-    // --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
+  // Main Logic
+  // --------------------------------------------------------------------------------
 
-    /// @dev safeMint
-    /// @param to to
-    /// @param tokenId token ID
-    function safeMint(
-        address to,
-        uint256 tokenId
-    ) public onlyRole(GAME_ROLE) {
-        _safeMint(to, tokenId);
-    }
+  /// @dev safeMint
+  /// @param to to
+  /// @param tokenId token ID
+  function safeMint(address to, uint256 tokenId) public onlyRole(GAME_ROLE) {
+    _safeMint(to, tokenId);
+  }
 
-    // --------------------------------------------------------------------------------
-    // Internal
-    // --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
+  // Internal
+  // --------------------------------------------------------------------------------
 
-    /// @dev Authorize upgrade
-    /// @param newImplementation new implementation address
-    function _authorizeUpgrade(
-        address newImplementation
-    ) internal override onlyRole(UPGRADER_ROLE) {}
+  /// @dev Authorize upgrade
+  /// @param newImplementation new implementation address
+  function _authorizeUpgrade(
+    address newImplementation
+  ) internal override onlyRole(UPGRADER_ROLE) {}
 }
