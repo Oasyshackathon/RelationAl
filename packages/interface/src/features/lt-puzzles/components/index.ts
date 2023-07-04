@@ -1,3 +1,4 @@
+export * from "./Answer";
 export * from "./Explanation";
 export * from "./GiveUpButton";
 export * from "./Incorrect";
@@ -6,7 +7,11 @@ export * from "./Logo";
 export * from "./MintingConfirmation";
 export * from "./NoButton";
 export * from "./PrevButton";
+export * from "./Problem";
+export * from "./Question";
+export * from "./QuestionInput";
 export * from "./Rule";
+export * from "./SolvedButton";
 export * from "./StartButton";
 export * from "./Title";
 export * from "./YesButton";
