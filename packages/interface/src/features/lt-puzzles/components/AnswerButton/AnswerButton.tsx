@@ -9,5 +9,5 @@ export type AnswerButtonProps = {} & BaseProps;
  * @zhihao404🚀🚀🚀
  */
 export const AnswerButton = ({ className }: AnswerButtonProps) => {
-  return <Button className={clsx(className)}>回答する</Button>;
+  return <Button className={clsx(className)}>{"     "}回答する{"    "}</Button>;
 };

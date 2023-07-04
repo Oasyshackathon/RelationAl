@@ -14,7 +14,7 @@ export type ConsiderationTextBoxProps = {
 export const ConsiderationTextBox = ({ className, value, onChange }: ConsiderationTextBoxProps) => {
   const [inputValue, setInputValue] = useState(value || "");
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = event.target.value;
     setInputValue(newValue);
     if (onChange) {
@@ -23,16 +23,25 @@ export const ConsiderationTextBox = ({ className, value, onChange }: Considerati
   };
 
   return (
-    <input
-      type="text"
-      className={clsx(className)}
-      value={inputValue}
-      onChange={handleInputChange}
-	  style={{ backgroundColor: "black",
-	   		   color: "white",
-			   width: "100%", 
-			   height: "300px",
-			}}
-    />
+    <div style={{ backgroundColor: "black", width: "100%", height: "300px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <textarea
+        className={clsx(className)}
+        value={inputValue}
+        onChange={handleInputChange}
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          width: "100%",
+          height: "100%",
+          border: "none",
+          outline: "none",
+          padding: "0",
+          margin: "0",
+          resize: "none",
+          textAlign: "center",
+          overflowWrap: "break-word",
+        }}
+      />
+    </div>
   );
 };
