@@ -16,3 +16,7 @@ export * from "./StartButton";
 export * from "./SuccessMint";
 export * from "./Title";
 export * from "./YesButton";
+export * from "./AnswerButton";
+export * from "./NotsureButton";
+export * from "./ConsiderationTextBox";
+export * from "./Consideration";
