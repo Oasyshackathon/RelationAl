@@ -9,5 +9,7 @@ export type LoginButtonProps = {} & BaseProps;
  * @keit0728
  */
 export const LoginButton = ({ className }: LoginButtonProps) => {
+  //TODO: #16 ボタン押したらウォレットに接続
+
   return <Button className={clsx(className)}>LOGIN</Button>;
 };
