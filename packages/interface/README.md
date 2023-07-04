@@ -5,7 +5,9 @@
 ## Getting Started
 
 ```bash
-npm i # 1回実行したら以降は不要
+# 1回実行したら以降は不要
+npm i
+
 npm run dev
 ```
 

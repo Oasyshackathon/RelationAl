@@ -1,5 +1,6 @@
-import { LoginButton, Logo } from "@/features/lt-puzzles/components";
+import { Logo } from "@/features/lt-puzzles/components";
 import { BaseProps } from "@/types/BaseProps";
+import { Web3Button } from "@web3modal/react";
 import clsx from "clsx";
 
 export type HeaderProps = {} & BaseProps;
@@ -25,7 +26,7 @@ export const Header = ({ className }: HeaderProps) => {
       )}
     >
       <Logo />
-      <LoginButton />
+      <Web3Button />
     </header>
   );
 };
