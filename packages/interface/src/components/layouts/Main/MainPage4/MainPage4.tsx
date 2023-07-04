@@ -1,19 +1,18 @@
 import {
-  Explanation,
-  MintingConfirmation,
-  NoButton,
-  YesButton,
+  GiveUpButton,
+  Incorrect,
+  PrevButton,
 } from "@/features/lt-puzzles/components";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
-export type MainPage3Props = {} & BaseProps;
+export type MainPage4Props = {} & BaseProps;
 
 /**
- * MainPage3
+ * MainPage4
  * @keit0728
  */
-export const MainPage3 = ({ className }: MainPage3Props) => {
+export const MainPage4 = ({ className }: MainPage4Props) => {
   return (
     <div
       className={clsx(
@@ -27,11 +26,10 @@ export const MainPage3 = ({ className }: MainPage3Props) => {
       )}
     >
       <div className={clsx("max-w-[512px]")}>
-        <Explanation className={clsx("mb-[30px]")} />
-        <MintingConfirmation className={clsx("mb-[30px]")} />
+        <Incorrect className={clsx("mb-[30px]")} />
         <div className={clsx("flex", "w-[100%]", "justify-between")}>
-          <YesButton className={clsx("mr-[100px]")} />
-          <NoButton className={clsx("")} />
+          <PrevButton className={clsx("mr-[100px]")} />
+          <GiveUpButton className={clsx("")} />
         </div>
       </div>
     </div>
