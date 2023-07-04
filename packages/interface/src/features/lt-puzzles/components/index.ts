@@ -1,3 +1,4 @@
+export * from "./Consideration";
 export * from "./Explanation";
 export * from "./GiveUpButton";
 export * from "./Incorrect";
@@ -11,3 +12,6 @@ export * from "./StartButton";
 export * from "./SuccessMint";
 export * from "./Title";
 export * from "./YesButton";
+export * from "./AnswerButton";
+export * from "./NotsureButton";
+export * from "./ConsiderationTextBox";
