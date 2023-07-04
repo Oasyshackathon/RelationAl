@@ -1,7 +1,6 @@
 export * from "./Explanation";
 export * from "./GiveUpButton";
 export * from "./Incorrect";
-export * from "./LoginButton";
 export * from "./Logo";
 export * from "./MintingConfirmation";
 export * from "./NoButton";
