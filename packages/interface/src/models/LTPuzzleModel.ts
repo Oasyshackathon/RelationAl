@@ -9,14 +9,14 @@ export class LTPuzzleModel extends ObjectCopier {
    * ```
    * @param problem 問題文
    * @param explanation 問題の答え（解説）
-   * @param answers ユーザーの回答まとめ
+   * @param reasonings ユーザーの推理一覧
    * @param isAnswer 正解かどうか
-   * @param qAndAs ユーザーの質問とAIの回答まとめ
+   * @param qAndAs ユーザーの質問とAIの回答一覧
    */
   private constructor(
     public readonly problem: string = "",
     public readonly explanation: string = "",
-    public readonly answers: string[] = [],
+    public readonly reasonings: string[] = [],
     public readonly isAnswer: boolean = false,
     public readonly qAndAs: string[] = [],
   ) {

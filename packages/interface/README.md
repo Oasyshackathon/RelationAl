@@ -8,6 +8,9 @@
 # 1回実行したら以降は不要
 npm i
 
+# 実行後に.env.localを編集
+cp .env.local.example .env.local
+
 npm run dev
 ```
 
