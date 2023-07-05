@@ -37,7 +37,7 @@ export const useLTPuzzleController = (): LTPuzzleController => {
    * mint
    */
   const mint = async (): Promise<void> => {
-    //TODO #37 問題をミントする
+    //TODO #21 ページ3ではいを押したらNFTをミントする
   };
 
   const controller: LTPuzzleController = {
