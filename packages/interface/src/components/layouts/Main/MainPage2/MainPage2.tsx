@@ -1,7 +1,7 @@
 import { AnswerButton } from "@/features/lt-puzzles/components/AnswerButton";
 import { ConsiderationTextBox } from "@/features/lt-puzzles/components/ConsiderationTextBox";
-import { NotSureButton } from "@/features/lt-puzzles/components/NotSureButton";
 import { Problem } from "@/features/lt-puzzles/components/Problem";
+import { StillDontKnowButton } from "@/features/lt-puzzles/components/StillDontKnowButton";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
@@ -30,7 +30,7 @@ export const MainPage2 = ({ className }: MainPage2Props) => {
           className={clsx("mb-[20px]", "w-[100%]", "h-[200px]")}
         />
         <div className={clsx("flex", "justify-between")}>
-          <NotSureButton className={clsx("")} />
+          <StillDontKnowButton className={clsx("")} />
           <AnswerButton className={clsx("")} />
         </div>
       </div>

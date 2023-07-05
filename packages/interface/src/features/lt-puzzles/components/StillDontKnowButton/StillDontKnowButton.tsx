@@ -3,13 +3,15 @@ import { Button } from "@/components/elements/Button";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
-export type NotSureButtonProps = {} & BaseProps;
+export type StillDontKnowButtonProps = {} & BaseProps;
 
 /**
- * NotSureButton
+ * StillDontKnowButton
  * @zhihao404🚀🚀🚀
  */
-export const NotSureButton = ({ className }: NotSureButtonProps) => {
+export const StillDontKnowButton = ({
+  className,
+}: StillDontKnowButtonProps) => {
   return (
     <Link href="/page1">
       <Button className={clsx(className)}>まだわからない</Button>
