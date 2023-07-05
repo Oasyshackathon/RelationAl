@@ -5,6 +5,7 @@ import {
   YesButton,
 } from "@/features/lt-puzzles/components";
 import { BaseProps } from "@/types/BaseProps";
+import Link from "next/link";
 import clsx from "clsx";
 
 export type MainPage3Props = {} & BaseProps;
@@ -30,8 +31,12 @@ export const MainPage3 = ({ className }: MainPage3Props) => {
         <Explanation className={clsx("mb-[30px]")} />
         <MintingConfirmation className={clsx("mb-[30px]")} />
         <div className={clsx("flex", "w-[100%]", "justify-between")}>
-          <YesButton className={clsx("mr-[100px]")} />
-          <NoButton className={clsx("")} />
+          <Link href="/page5">
+            <YesButton className={clsx("mr-[100px]")} />
+          </Link>
+          <Link href="/">
+            <NoButton className={clsx("")} />
+          </Link>
         </div>
       </div>
     </div>
