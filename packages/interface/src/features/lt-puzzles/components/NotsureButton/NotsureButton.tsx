@@ -1,13 +1,18 @@
+import Link from "next/link";
 import { Button } from "@/components/elements/Button";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
-export type NotsureButtonProps = {} & BaseProps;
+export type NotSureButtonProps = {} & BaseProps;
 
 /**
- * NotsureButton
+ * NotSureButton
  * @zhihao404🚀🚀🚀
  */
-export const NotsureButton = ({ className }: NotsureButtonProps) => {
-  return <Button className={clsx(className)}>まだわからない</Button>;
+export const NotSureButton = ({ className }: NotSureButtonProps) => {
+  return (
+    <Link href="/page1">
+      <Button className={clsx(className)}>まだわからない</Button>
+    </Link>
+  );
 };

@@ -1,7 +1,6 @@
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
-
 export type AnswerProps = {} & BaseProps;
 
 /**

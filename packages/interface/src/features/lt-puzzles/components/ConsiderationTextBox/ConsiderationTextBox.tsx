@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
-import { useState } from "react";
 
 export type ConsiderationTextBoxProps = {
   value?: string;
@@ -11,7 +11,11 @@ export type ConsiderationTextBoxProps = {
  * ConsiderationTextBox
  * @zhihao404🚀🚀🚀
  */
-export const ConsiderationTextBox = ({ className, value, onChange }: ConsiderationTextBoxProps) => {
+export const ConsiderationTextBox = ({
+  className,
+  value,
+  onChange,
+}: ConsiderationTextBoxProps) => {
   const [inputValue, setInputValue] = useState(value || "");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -23,25 +27,11 @@ export const ConsiderationTextBox = ({ className, value, onChange }: Considerati
   };
 
   return (
-    <div style={{ backgroundColor: "black", width: "100%", height: "300px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <textarea
-        className={clsx(className)}
-        value={inputValue}
-        onChange={handleInputChange}
-        style={{
-          backgroundColor: "black",
-          color: "white",
-          width: "100%",
-          height: "100%",
-          border: "none",
-          outline: "none",
-          padding: "0",
-          margin: "0",
-          resize: "none",
-          textAlign: "center",
-          overflowWrap: "break-word",
-        }}
-      />
-    </div>
+    <textarea
+      className={clsx(className, "bg-primary-700", "p-[8px]", "rounded-lg")}
+      value={inputValue}
+      onChange={handleInputChange}
+      placeholder="あなたの推理"
+    />
   );
 };

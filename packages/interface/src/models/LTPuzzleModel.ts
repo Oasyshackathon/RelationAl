@@ -7,18 +7,18 @@ export class LTPuzzleModel extends ObjectCopier {
    * ```
    * export const dummy = LTPuzzleModel.create({ language: "English" });
    * ```
-   * @param question question
-   * @param explanation explanation
-   * @param answer answer
-   * @param isCorrect isCorrect
-   * @param qas qas
+   * @param problem 問題文
+   * @param explanation 問題の答え（解説）
+   * @param answers ユーザーの回答まとめ
+   * @param isAnswer 正解かどうか
+   * @param qAndAs ユーザーの質問とAIの回答まとめ
    */
   private constructor(
-    public readonly question: string = "",
+    public readonly problem: string = "",
     public readonly explanation: string = "",
-    public readonly answer: string = "",
-    public readonly isCorrect: boolean = false,
-    public readonly qas: string[] = [],
+    public readonly answers: string[] = [],
+    public readonly isAnswer: boolean = false,
+    public readonly qAndAs: string[] = [],
   ) {
     super();
   }

@@ -1,4 +1,4 @@
-import { Logo } from "@/features/lt-puzzles/components";
+import { Logo } from "@/components/elements/Logo";
 import { BaseProps } from "@/types/BaseProps";
 import { Web3Button } from "@web3modal/react";
 import clsx from "clsx";

@@ -1,4 +1,5 @@
-import { OKButton, SuccessMint } from "@/features/lt-puzzles/components";
+import { OKButton } from "@/features/lt-puzzles/components/OKButton";
+import { SuccessMint } from "@/features/lt-puzzles/components/SuccessMint";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
