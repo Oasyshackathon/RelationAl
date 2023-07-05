@@ -1,6 +1,6 @@
+import { useLTPuzzleValue } from "@/hooks/useLTPuzzle";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
-
 
 export type ProblemProps = {} & BaseProps;
 
@@ -9,13 +9,12 @@ export type ProblemProps = {} & BaseProps;
  * @yU-kiki
  */
 export const Problem = ({ className }: ProblemProps) => {
-  const problem =
-    "あるホテルで多くの死者を出す火災が起き、男と女が生き残った。後日、女は男を殺した。なぜか。";
+  const ltPuzzles = useLTPuzzleValue();
 
   return (
-    <div className={clsx(className)}>
-      <div className={clsx("font-bold")}>問題</div>
-      <div className={clsx("")}>{problem}</div>
+    <div className={clsx(className, "border-[1px]", "rounded-lg", "p-[8px]")}>
+      <div className={clsx("font-bold", "mb-[10px]")}>問題</div>
+      <div className={clsx("")}>{ltPuzzles.problem}</div>
     </div>
   );
 };

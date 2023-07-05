@@ -1,10 +1,8 @@
-import {
-  GiveUpButton,
-  Incorrect,
-  PrevButton,
-} from "@/features/lt-puzzles/components";
-import { BaseProps } from "@/types/BaseProps";
 import Link from "next/link";
+import { GiveUpButton } from "@/features/lt-puzzles/components/GiveUpButton";
+import { Incorrect } from "@/features/lt-puzzles/components/Incorrect";
+import { PrevButton } from "@/features/lt-puzzles/components/PrevButton";
+import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
 export type MainPage4Props = {} & BaseProps;

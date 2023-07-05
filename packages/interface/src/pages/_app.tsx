@@ -7,6 +7,7 @@ import {
   w3mProvider,
 } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
+import { RecoilRoot } from "recoil";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
 
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID!;
@@ -24,7 +25,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <WagmiConfig config={wagmiConfig}>
-        <Component {...pageProps} />
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
       </WagmiConfig>
       <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
     </>

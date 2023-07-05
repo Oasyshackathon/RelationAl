@@ -20,17 +20,14 @@ export const Input = ({ className, placeholder, onChange }: InputProps) => {
       onChange(event.target.value);
     }
   };
+
   return (
     <input
       type="text"
       value={value}
       onChange={handleInputChange}
       placeholder={placeholder}
-      className={clsx(
-        className,
-        "focus:outline-none",
-        "focus:border-none",
-      )}
-    ></input>
+      className={clsx(className, "focus:outline-none", "focus:border-none")}
+    />
   );
 };

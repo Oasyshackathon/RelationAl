@@ -1,14 +1,10 @@
-import {
-  Answer,
-  Problem,
-  Question,
-  QuestionInput,
-  SolvedButton,
-} from "@/features/lt-puzzles/components";
+import { Answer } from "@/features/lt-puzzles/components/Answer";
+import { Problem } from "@/features/lt-puzzles/components/Problem";
+import { Question } from "@/features/lt-puzzles/components/Question";
+import { QuestionInput } from "@/features/lt-puzzles/components/QuestionInput";
+import { SolvedButton } from "@/features/lt-puzzles/components/SolvedButton";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
-import Link from "next/link";
-
 
 export type MainPage1Props = {} & BaseProps;
 
@@ -34,14 +30,18 @@ export const MainPage1 = ({ className }: MainPage1Props) => {
         <Question className={clsx("mb-[30px]")} />
         <Answer className={clsx("mb-[30px]")} />
       </div>
-      <div className={clsx("fixed", "bottom-[50px]")}>
+      <div
+        className={clsx(
+          "fixed",
+          "bottom-[20px]",
+          "max-w-[512px]",
+          "w-[90%]",
+          "md:bottom-[50px]",
+        )}
+      >
         <div className={clsx("flex", "flex-col", "items-center")}>
-          <Link href="/page2">
-            <SolvedButton className={clsx("w-[200px]", "mb-[20px]")} />
-          </Link>
-          <QuestionInput
-            className={clsx("flex", "w-[512px]", "bg-primary-700")}
-          />
+          <SolvedButton className={clsx("mb-[20px]")} />
+          <QuestionInput className={clsx("w-[100%]")} />
         </div>
       </div>
     </div>

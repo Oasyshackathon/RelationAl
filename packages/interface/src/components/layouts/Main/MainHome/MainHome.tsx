@@ -1,7 +1,8 @@
-import { Rule, StartButton, Title } from "@/features/lt-puzzles/components";
+import { Rule } from "@/features/lt-puzzles/components/Rule";
+import { StartButton } from "@/features/lt-puzzles/components/StartButton";
+import { Title } from "@/features/lt-puzzles/components/Title";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
-import Link from "next/link";
 
 export type MainHomeProps = {} & BaseProps;
 
@@ -23,12 +24,10 @@ export const MainHome = ({ className }: MainHomeProps) => {
       )}
     >
       <div className={clsx("max-w-[512px]")}>
-        <Title className={clsx("mb-[10px]")} />
+        <Title className={clsx("mb-[30px]")} />
         <Rule className={clsx("mb-[100px]")} />
         <div className={clsx("flex", "w-[100%]", "justify-center")}>
-          <Link href="/page1">
-            <StartButton className={clsx("")} />
-          </Link>
+          <StartButton className={clsx("")} />
         </div>
       </div>
     </div>
