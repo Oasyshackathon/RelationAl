@@ -8,6 +8,7 @@ import {
   } from "@/features/lt-puzzles/components";
   import { BaseProps } from "@/types/BaseProps";
   import clsx from "clsx";
+  import { useRouter } from "next/router";
   
   export type MainPage2Props = {} & BaseProps;
   
@@ -16,6 +17,17 @@ import {
    * @zhihao404🚀🚀🚀
    */
   export const MainPage2 = ({ className }: MainPage2Props) => {
+	const router = useRouter();
+	const x = 1; // Replace with the actual value of x
+  
+	const handleAnswerButtonClick = () => {
+	  if (x === 1) {
+		router.push("/page3");
+	  } else {
+		router.push("/page4");
+	  }
+	};
+  
 	return (
 	  <div
 		className={clsx(
@@ -25,7 +37,7 @@ import {
 		  "items-center",
 		  "mt-[100px]",
 		  "mx-[20px]",
-		  "mb-[20px]",
+		  "mb-[20px]"
 		)}
 	  >
 		<div className={clsx("max-w-[512px]")}>
@@ -33,9 +45,11 @@ import {
 		  <Question className={clsx("mb-[50px]")} />
 		  <Consideration className={clsx("mb-[20px]")} />
 		  <ConsiderationTextBox className={clsx("mb-[30px]")} />
-		  <div className={clsx("flex", "mt-[10px]" , "w-[100%]", "justify-between")}>
+		  <div className={clsx("flex", "mt-[10px]", "w-[100%]", "justify-between")}>
 			<NotsureButton className={clsx("mr-[100px]")} />
-			<AnswerButton className={clsx("")} />
+			<button className={clsx("")} onClick={handleAnswerButtonClick}>
+				<AnswerButton className={clsx("")} />
+			</button>
 		  </div>
 		</div>
 	  </div>
