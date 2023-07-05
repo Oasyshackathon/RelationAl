@@ -36,7 +36,7 @@ npm run dev
   - models -> 状態変数をまとめる
   - pages -> web ページ
     - api -> Next.js の API（バックエンド）
-  - styles -> 共通スタイル(global.css のみ)
   - stores -> 状態変数の実体
+  - styles -> 共通スタイル(global.css のみ)
   - types -> 型定義
   - utils -> 便利関数まとめ
