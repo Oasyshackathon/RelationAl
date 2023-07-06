@@ -30,7 +30,9 @@ export const MainPage4 = ({ className }: MainPage4Props) => {
           <Link href="/page1">
             <PrevButton className={clsx("mr-[100px]")} />
           </Link>
-          <GiveUpButton className={clsx("")} />
+          <Link href="/page6">
+            <GiveUpButton className={clsx("")} />
+          </Link>
         </div>
       </div>
     </div>
