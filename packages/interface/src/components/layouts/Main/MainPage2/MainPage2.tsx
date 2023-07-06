@@ -19,9 +19,10 @@ export const MainPage2 = ({ className }: MainPage2Props) => {
         "flex",
         "flex-col",
         "items-center",
-        "mt-[100px]",
         "mx-[20px]",
         "mb-[20px]",
+        "mt-[80px]",
+        "md:mt-[100px]",
       )}
     >
       <div className={clsx("max-w-[512px]", "w-[100%]")}>

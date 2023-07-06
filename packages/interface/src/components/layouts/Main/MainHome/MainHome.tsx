@@ -18,12 +18,13 @@ export const MainHome = ({ className }: MainHomeProps) => {
         "flex",
         "flex-col",
         "items-center",
-        "mt-[100px]",
         "mx-[20px]",
         "mb-[20px]",
+        "mt-[80px]",
+        "md:mt-[100px]",
       )}
     >
-      <div className={clsx("max-w-[512px]")}>
+      <div className={clsx("max-w-[512px]", "min-w-[300px]")}>
         <ProductName className={clsx("mb-[30px]")} />
         <Rule className={clsx("mb-[100px]")} />
         <div className={clsx("flex", "w-[100%]", "justify-center")}>

@@ -22,8 +22,8 @@ export const NoButton = ({ className }: NoButtonProps) => {
   const handleClick = () => {
     setDisable(true);
     setLoading(true);
-    ltPuzzleController.reset();
     push("/");
+    ltPuzzleController.reset();
     setDisable(false);
     setLoading(false);
   };

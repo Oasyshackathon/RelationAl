@@ -22,8 +22,8 @@ export const OKButton = ({ className }: OKButtonProps) => {
   const handleClick = () => {
     setDisable(true);
     setLoading(true);
-    ltPuzzleController.reset();
     push("/");
+    ltPuzzleController.reset();
     setDisable(false);
     setLoading(false);
   };

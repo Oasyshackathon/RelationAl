@@ -10,8 +10,8 @@ export type RuleProps = {} & BaseProps;
 export const Rule = ({ className }: RuleProps) => {
   return (
     <div className={clsx(className)}>
-      水平思考ゲーム（ウミガメのスープ）をAIが出題してきます。はい / いいえ
-      で答えられる質問を繰り返し、答えに辿り着きましょう！
+      「ウミガメのスープ」で有名な水平思考ゲームをAIが出題してきます。はい /
+      いいえ で答えられる質問を繰り返し、謎を解き明かしましょう！
     </div>
   );
 };

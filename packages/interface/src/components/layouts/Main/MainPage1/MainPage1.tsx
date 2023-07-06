@@ -27,8 +27,9 @@ export const MainPage1 = ({ className }: MainPage1Props) => {
         "md:mb-[200px]",
       )}
     >
-      <div className={clsx("max-w-[512px]")}>
+      <div className={clsx("max-w-[512px]", "min-w-[300px]")}>
         <Puzzle className={clsx("mb-[30px]")} />
+        {/* TODO: #41 AIに質問を投げて回答させる */}
         <Question className={clsx("mb-[30px]")} />
         <Answer className={clsx("mb-[30px]")} />
       </div>
@@ -42,8 +43,10 @@ export const MainPage1 = ({ className }: MainPage1Props) => {
         )}
       >
         <div className={clsx("flex", "flex-col", "items-center")}>
-          <SolvedButton className={clsx("mb-[10px]", "md:mb-[20px]")} />
-          <QuestionInput className={clsx("w-[100%]")} />
+          <SolvedButton className={clsx("")} />
+          <QuestionInput
+            className={clsx("w-[100%]", "mt-[10px]", "md:mt-[20px]")}
+          />
         </div>
       </div>
     </div>

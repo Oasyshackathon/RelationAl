@@ -17,12 +17,13 @@ export const MainPage5 = ({ className }: MainPage5Props) => {
         "flex",
         "flex-col",
         "items-center",
-        "mt-[100px]",
         "mx-[20px]",
         "mb-[20px]",
+        "mt-[80px]",
+        "md:mt-[100px]",
       )}
     >
-      <div className={clsx("max-w-[512px]")}>
+      <div className={clsx("max-w-[512px]", "min-w-[300px]")}>
         <SuccessMint className={clsx("mb-[30px]")} />
         <div className={clsx("flex", "w-[100%]", "justify-center")}>
           <OKButton className={clsx("")} />
