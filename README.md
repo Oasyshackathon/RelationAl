@@ -2,7 +2,7 @@
 
 TODO: #15 ここに概要を書く
 
-[デモサイト](https://relational.netlify.app/)
+[デモサイト](https://relational.vercel.app/)
 
 # ディレクトリ構成
 
