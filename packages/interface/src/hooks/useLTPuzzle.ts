@@ -6,9 +6,10 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 
 export interface LTPuzzleController {
   start: () => Promise<void>;
-  infer: () => Promise<boolean>;
+  infer: (inference: string) => Promise<boolean>;
   mint: (tokenId: BigInt) => Promise<void>;
   reset: () => void;
+  setInference: (inference: string) => void;
 }
 
 export const useLTPuzzleValue = (): LTPuzzleState => {
@@ -53,17 +54,18 @@ export const useLTPuzzleController = (): LTPuzzleController => {
 
   /**
    * infer
+   * @param inference 推理
    * @return {boolean} isAnswer
    */
-  const infer = async (): Promise<boolean> => {
+  const infer = async (inference: string): Promise<boolean> => {
     // TODO: #36 AIに推理があっているか判定させる
     // start関数を参考にすれば実装できると思う！
-    return false;
+    return inference.length !== 0;
   };
 
   /**
    * mint
-   * @param tokenId
+   * @param tokenId トークンID
    */
   const mint = async (tokenId: BigInt): Promise<void> => {
     const ltPuzzle = ClientLTPuzzle.instance();
@@ -84,11 +86,21 @@ export const useLTPuzzleController = (): LTPuzzleController => {
     setLTPuzzle(LTPuzzleModel.create({}));
   };
 
+  /**
+   * setInference
+   */
+  const setInference = (inference: string): void => {
+    setLTPuzzle((prevState) => {
+      return prevState.copyWith({ inference });
+    });
+  };
+
   const controller: LTPuzzleController = {
     start,
     infer,
     mint,
     reset,
+    setInference,
   };
   return controller;
 };

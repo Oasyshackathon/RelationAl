@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useLTPuzzleState } from "@/hooks/useLTPuzzle";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
 export type ConsiderationTextBoxProps = {
   value?: string;
-  onChange?: (value: string) => void;
 } & BaseProps;
 
 /**
@@ -14,22 +13,17 @@ export type ConsiderationTextBoxProps = {
 export const ConsiderationTextBox = ({
   className,
   value,
-  onChange,
 }: ConsiderationTextBoxProps) => {
-  const [inputValue, setInputValue] = useState(value || "");
+  const [ltPuzzle, ltPuzzleController] = useLTPuzzleState();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newValue = event.target.value;
-    setInputValue(newValue);
-    if (onChange) {
-      onChange(newValue);
-    }
+    ltPuzzleController.setInference(event.target.value);
   };
 
   return (
     <textarea
       className={clsx(className, "bg-primary-700", "p-[8px]", "rounded-lg")}
-      value={inputValue}
+      value={ltPuzzle.inference}
       onChange={handleInputChange}
       placeholder="あなたの推理"
     />

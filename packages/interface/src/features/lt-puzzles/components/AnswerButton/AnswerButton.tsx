@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { Button } from "@/components/elements/Button";
-import { useLTPuzzleController } from "@/hooks/useLTPuzzle";
+import { useLTPuzzleState } from "@/hooks/useLTPuzzle";
 import { disabledState } from "@/stores/disabledState";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
@@ -14,7 +14,7 @@ export type AnswerButtonProps = {} & BaseProps;
  * @zhihao404🚀🚀🚀
  */
 export const AnswerButton = ({ className }: AnswerButtonProps) => {
-  const ltPuzzleController = useLTPuzzleController();
+  const [ltPuzzle, ltPuzzleController] = useLTPuzzleState();
   const [loading, setLoading] = useState(false);
   const [disabled, setDisable] = useRecoilState(disabledState);
   const { push } = useRouter();
@@ -24,7 +24,7 @@ export const AnswerButton = ({ className }: AnswerButtonProps) => {
     setLoading(true);
     let isAnswer = false;
     try {
-      isAnswer = await ltPuzzleController.infer();
+      isAnswer = await ltPuzzleController.infer(ltPuzzle.inference);
     } catch (e) {
       console.error(e);
       alert("通信失敗。再実行してください。\n\n理由: " + e);
