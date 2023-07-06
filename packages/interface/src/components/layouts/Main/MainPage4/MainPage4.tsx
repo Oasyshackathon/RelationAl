@@ -19,16 +19,17 @@ export const MainPage4 = ({ className }: MainPage4Props) => {
         "flex",
         "flex-col",
         "items-center",
-        "mt-[100px]",
         "mx-[20px]",
         "mb-[20px]",
+        "mt-[80px]",
+        "md:mt-[100px]",
       )}
     >
-      <div className={clsx("max-w-[512px]")}>
+      <div className={clsx("max-w-[512px]", "min-w-[300px]")}>
         <Incorrect className={clsx("mb-[30px]")} />
         <div className={clsx("flex", "w-[100%]", "justify-between")}>
           <Link href="/page1">
-            <PrevButton className={clsx("mr-[100px]")} />
+            <PrevButton className={clsx("")} />
           </Link>
           <Link href="/page6">
             <GiveUpButton className={clsx("")} />

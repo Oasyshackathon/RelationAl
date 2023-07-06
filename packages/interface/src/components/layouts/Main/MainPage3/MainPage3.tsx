@@ -19,17 +19,18 @@ export const MainPage3 = ({ className }: MainPage3Props) => {
         "flex",
         "flex-col",
         "items-center",
-        "mt-[100px]",
         "mx-[20px]",
         "mb-[20px]",
+        "mt-[80px]",
+        "md:mt-[100px]",
       )}
     >
-      <div className={clsx("max-w-[512px]")}>
+      <div className={clsx("max-w-[512px]", "min-w-[300px]")}>
         <div className={clsx("mb-[20px]")}>正解です！</div>
         <Explanation className={clsx("mb-[30px]")} />
         <MintingConfirmation className={clsx("mb-[30px]")} />
         <div className={clsx("flex", "w-[100%]", "justify-between")}>
-          <YesButton className={clsx("mr-[100px]")} />
+          <YesButton className={clsx("")} />
           <NoButton className={clsx("")} />
         </div>
       </div>

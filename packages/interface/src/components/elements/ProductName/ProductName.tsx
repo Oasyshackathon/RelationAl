@@ -1,13 +1,13 @@
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
-export type TitleProps = {} & BaseProps;
+export type ProductNameProps = {} & BaseProps;
 
 /**
- * Title
+ * ProductName
  * @keit0728
  */
-export const Title = ({ className }: TitleProps) => {
+export const ProductName = ({ className }: ProductNameProps) => {
   return (
     <div className={clsx(className, "text-4xl", "font-bold")}>RelationAl</div>
   );

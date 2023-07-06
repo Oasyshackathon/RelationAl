@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write '**/*.js' '**/*.ts' '**/*.tsx' '**/*.json' --ignore-path .gitignore"
+    "format": "prettier --write '**/*.js' '**/*.ts' '**/*.tsx' '**/*.json' --ignore-path .gitignore",
+    "move-abi-lt-puzzle": "cd ../contracts && cp -rf artifacts/contracts/lt-puzzle/LTPuzzle.sol/LTPuzzle.json ../interface/artifacts/LTPuzzle.json",
+    "premove-abi": "cd ../contracts && npm run compile",
+    "move-abi": "cd artifacts/ && ls | grep -v -E 'MCHCoin.json' | xargs rm -rf && cd .. && npm run move-abi-lt-puzzle"
   },
   "dependencies": {
     "@types/node": "20.3.2",
