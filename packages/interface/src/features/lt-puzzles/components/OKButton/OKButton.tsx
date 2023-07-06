@@ -1,7 +1,11 @@
-import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 import { Button } from "@/components/elements/Button";
+import { useLTPuzzleController } from "@/hooks/useLTPuzzle";
+import { disabledState } from "@/stores/disabledState";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
+import { useRecoilState } from "recoil";
 
 export type OKButtonProps = {} & BaseProps;
 
@@ -10,9 +14,28 @@ export type OKButtonProps = {} & BaseProps;
  * @keit0728
  */
 export const OKButton = ({ className }: OKButtonProps) => {
+  const ltPuzzleController = useLTPuzzleController();
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisable] = useRecoilState(disabledState);
+  const { push } = useRouter();
+
+  const handleClick = () => {
+    setDisable(true);
+    setLoading(true);
+    ltPuzzleController.reset();
+    push("/");
+    setDisable(false);
+    setLoading(false);
+  };
+
   return (
-    <Link href="/">
-      <Button className={clsx(className)}>OK</Button>
-    </Link>
+    <Button
+      className={clsx(className)}
+      disabled={disabled}
+      loading={loading}
+      onClick={handleClick}
+    >
+      OK
+    </Button>
   );
 };

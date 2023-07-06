@@ -1,5 +1,5 @@
 import { Answer } from "@/features/lt-puzzles/components/Answer";
-import { Problem } from "@/features/lt-puzzles/components/Problem";
+import { Puzzle } from "@/features/lt-puzzles/components/Puzzle";
 import { Question } from "@/features/lt-puzzles/components/Question";
 import { QuestionInput } from "@/features/lt-puzzles/components/QuestionInput";
 import { SolvedButton } from "@/features/lt-puzzles/components/SolvedButton";
@@ -20,13 +20,15 @@ export const MainPage1 = ({ className }: MainPage1Props) => {
         "flex",
         "flex-col",
         "items-center",
-        "mt-[100px]",
+        "mt-[80px]",
         "mx-[20px]",
-        "mb-[20px]",
+        "mb-[150px]",
+        "md:mt-[100px]",
+        "md:mb-[200px]",
       )}
     >
       <div className={clsx("max-w-[512px]")}>
-        <Problem className={clsx("mb-[30px]")} />
+        <Puzzle className={clsx("mb-[30px]")} />
         <Question className={clsx("mb-[30px]")} />
         <Answer className={clsx("mb-[30px]")} />
       </div>
@@ -40,7 +42,7 @@ export const MainPage1 = ({ className }: MainPage1Props) => {
         )}
       >
         <div className={clsx("flex", "flex-col", "items-center")}>
-          <SolvedButton className={clsx("mb-[20px]")} />
+          <SolvedButton className={clsx("mb-[10px]", "md:mb-[20px]")} />
           <QuestionInput className={clsx("w-[100%]")} />
         </div>
       </div>
