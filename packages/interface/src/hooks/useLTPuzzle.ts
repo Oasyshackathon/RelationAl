@@ -60,12 +60,20 @@ export const useLTPuzzleController = (): LTPuzzleController => {
    * @return {Promise<void>}
    */
 
-  const ask = async (question: string, explanation: string, description: string): Promise<void> => {
+  const ask = async (
+    question: string,
+    explanation: string,
+    description: string,
+  ): Promise<void> => {
     if (question === "") throw new Error("質問内容が空です");
     // Send question to GPT-3 via API
     let res: any;
     try {
-      res = await axios.post("/api/ask", { question, explanation, description });
+      res = await axios.post("/api/ask", {
+        question,
+        explanation,
+        description,
+      });
     } catch (e) {
       if (axios.isAxiosError(e)) throw new Error(e.response!.data.message);
       console.error(e);
@@ -85,7 +93,6 @@ export const useLTPuzzleController = (): LTPuzzleController => {
       return prevState.copyWith({ qaHistories: newQaHistories });
     });
   };
-
 
   // const ask = async (question: string): Promise<void> => {
   //   const answerFromAI = "This is a placeholder answer from AI.";
