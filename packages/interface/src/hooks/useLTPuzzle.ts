@@ -6,7 +6,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 
 export interface LTPuzzleController {
   start: () => Promise<void>;
-  ask: (inference: string) => Promise<void>;
+  ask: (question: string, explanation: string, description: string) => Promise<void>;
   infer: (inference: string) => Promise<boolean>;
   mint: (tokenId: BigInt) => Promise<void>;
   reset: () => void;
