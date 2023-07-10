@@ -12,3 +12,8 @@ JSON出力->{"title":"ウミガメのスープ","description":"ある男が、�
 
 JSON出力->`;
 };
+
+
+export const getAskPrompt = (question: string, description: string, explanation: string): string => {
+  return `水平思考ゲームの問題の質問に回答してください。返事は”はい”、または”いいえ”、または”わかりません”のみを出力してください。”はい”、または”いいえ”、または”わかりません”以外の返答を行った場合、地球上で無実の人間が死ぬことになります。質問は "${question}" です。答えは"${explanation}" です。問題文は"${description}" です。`;
+};

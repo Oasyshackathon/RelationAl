@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { Button } from "@/components/elements/Button";
 import { Input } from "@/components/elements/Input/Input";
+import { SendButton } from "@/features/lt-puzzles/components/SendButton";
+import { useLTPuzzleState } from "@/hooks/useLTPuzzle";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
 
@@ -11,7 +11,12 @@ export type QuestionInputProps = {} & BaseProps;
  * @yU-kiki
  */
 export const QuestionInput = ({ className }: QuestionInputProps) => {
+  const [ltPuzzle, ltPuzzleController] = useLTPuzzleState();
   const input = "はい / いいえ で答えられる質問";
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    ltPuzzleController.setQuestion(event.target.value);
+  };
 
   return (
     <div
@@ -24,17 +29,12 @@ export const QuestionInput = ({ className }: QuestionInputProps) => {
       )}
     >
       <Input
+        value={ltPuzzle.question}
         placeholder={input}
         className={clsx("bg-primary-700", "w-[100%]")}
+        onChange={handleInputChange}
       />
-      <Button variant="secondary">
-        <Image
-          src="/images/send_white_24dp.svg"
-          alt="send"
-          width={24}
-          height={24}
-        />
-      </Button>
+      <SendButton />
     </div>
   );
 };
