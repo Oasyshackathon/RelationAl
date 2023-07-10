@@ -11,6 +11,7 @@ export interface LTPuzzleController {
   mint: (tokenId: BigInt) => Promise<void>;
   reset: () => void;
   setInference: (inference: string) => void;
+  setQuestion: (question: string) => void;
 }
 
 export const useLTPuzzleValue = (): LTPuzzleState => {
@@ -58,8 +59,23 @@ export const useLTPuzzleController = (): LTPuzzleController => {
    * @param question 質問内容
    * @return {Promise<void>}
    */
-  const ask = async (question: string): Promise<void> => {
-    const answerFromAI = "This is a placeholder answer from AI.";
+
+  const ask = async (question: string, explanation: string, description: string): Promise<void> => {
+    if (question === "") throw new Error("質問内容が空です");
+    // Send question to GPT-3 via API
+    let res: any;
+    try {
+      res = await axios.post("/api/ask", { question, explanation, description });
+    } catch (e) {
+      if (axios.isAxiosError(e)) throw new Error(e.response!.data.message);
+      console.error(e);
+      throw new Error("Unknown Error");
+    }
+
+    const answerFromAI = res.data.answer;
+
+    // TODO: 後で消す
+    console.log("answerFromAI:", answerFromAI);
 
     setLTPuzzle((prevState) => {
       const newQaHistories = [
@@ -69,6 +85,19 @@ export const useLTPuzzleController = (): LTPuzzleController => {
       return prevState.copyWith({ qaHistories: newQaHistories });
     });
   };
+
+
+  // const ask = async (question: string): Promise<void> => {
+  //   const answerFromAI = "This is a placeholder answer from AI.";
+
+  //   setLTPuzzle((prevState) => {
+  //     const newQaHistories = [
+  //       ...prevState.qaHistories,
+  //       { question, answer: answerFromAI },
+  //     ];
+  //     return prevState.copyWith({ qaHistories: newQaHistories });
+  //   });
+  // };
 
   /**
    * infer
@@ -128,6 +157,15 @@ export const useLTPuzzleController = (): LTPuzzleController => {
     });
   };
 
+  /**
+   * setQuestion
+   */
+  const setQuestion = (question: string): void => {
+    setLTPuzzle((prevState) => {
+      return prevState.copyWith({ question });
+    });
+  };
+
   const controller: LTPuzzleController = {
     start,
     ask,
@@ -135,6 +173,7 @@ export const useLTPuzzleController = (): LTPuzzleController => {
     mint,
     reset,
     setInference,
+    setQuestion,
   };
   return controller;
 };

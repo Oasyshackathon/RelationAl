@@ -17,6 +17,7 @@ export class LTPuzzleModel extends ObjectCopier {
    * @param qaHistories ユーザーの質問とAIの回答履歴
    * @param tokenId 問題のID
    * @param transactionHash トランザクションハッシュ
+   * @param question 質問
    */
   private constructor(
     public readonly title: string = "",
@@ -28,6 +29,7 @@ export class LTPuzzleModel extends ObjectCopier {
     public readonly qaHistories: QandA[] = [],
     public readonly tokenId: BigInt = BigInt(0),
     public readonly transactionHash: string = "",
+    public readonly question: string = "",
   ) {
     super();
   }
