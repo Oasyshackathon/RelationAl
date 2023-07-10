@@ -1,10 +1,11 @@
-import { Answer } from "@/features/lt-puzzles/components/Answer";
+import { Ask } from "@/features/lt-puzzles/components/Ask";
 import { Puzzle } from "@/features/lt-puzzles/components/Puzzle";
-import { Question } from "@/features/lt-puzzles/components/Question";
 import { QuestionInput } from "@/features/lt-puzzles/components/QuestionInput";
 import { SolvedButton } from "@/features/lt-puzzles/components/SolvedButton";
+import { ltPuzzleState } from "@/stores/ltPuzzleState";
 import { BaseProps } from "@/types/BaseProps";
 import clsx from "clsx";
+import { useRecoilValue } from "recoil";
 
 export type MainPage1Props = {} & BaseProps;
 
@@ -13,6 +14,7 @@ export type MainPage1Props = {} & BaseProps;
  * @yU-kiki
  */
 export const MainPage1 = ({ className }: MainPage1Props) => {
+  const puzzle = useRecoilValue(ltPuzzleState);
   return (
     <div
       className={clsx(
@@ -30,8 +32,7 @@ export const MainPage1 = ({ className }: MainPage1Props) => {
       <div className={clsx("max-w-[512px]", "min-w-[300px]")}>
         <Puzzle className={clsx("mb-[30px]")} />
         {/* TODO: #41 AIに質問を投げて回答させる */}
-        <Question className={clsx("mb-[30px]")} />
-        <Answer className={clsx("mb-[30px]")} />
+        <Ask puzzle={puzzle} className={clsx("mb-[30px]")} />
       </div>
       <div
         className={clsx(
