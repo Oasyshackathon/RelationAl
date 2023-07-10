@@ -6,6 +6,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 
 export interface LTPuzzleController {
   start: () => Promise<void>;
+  ask: (inference: string) => Promise<void>;
   infer: (inference: string) => Promise<boolean>;
   mint: (tokenId: BigInt) => Promise<void>;
   reset: () => void;
@@ -53,6 +54,23 @@ export const useLTPuzzleController = (): LTPuzzleController => {
   };
 
   /**
+   * ask
+   * @param question 質問内容
+   * @return {Promise<void>}
+   */
+  const ask = async (question: string): Promise<void> => {
+    const answerFromAI = "This is a placeholder answer from AI.";
+
+    setLTPuzzle((prevState) => {
+      const newQaHistories = [
+        ...prevState.qaHistories,
+        { question, answer: answerFromAI },
+      ];
+      return prevState.copyWith({ qaHistories: newQaHistories });
+    });
+  };
+
+  /**
    * infer
    * @param inference 推理
    * @return {boolean} isAnswer
@@ -97,6 +115,7 @@ export const useLTPuzzleController = (): LTPuzzleController => {
 
   const controller: LTPuzzleController = {
     start,
+    ask,
     infer,
     mint,
     reset,
