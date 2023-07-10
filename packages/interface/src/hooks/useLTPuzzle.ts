@@ -7,7 +7,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 export interface LTPuzzleController {
   start: () => Promise<void>;
   ask: (inference: string) => Promise<void>;
-  infer: (inference: string) => Promise<boolean>;
+  infer: (inference: string, explanation: string) => Promise<boolean>;
   mint: (tokenId: BigInt) => Promise<void>;
   reset: () => void;
   setInference: (inference: string) => void;
@@ -73,12 +73,27 @@ export const useLTPuzzleController = (): LTPuzzleController => {
   /**
    * infer
    * @param inference 推理
+   * @param explanation
    * @return {boolean} isAnswer
    */
-  const infer = async (inference: string): Promise<boolean> => {
-    // TODO: #36 AIに推理があっているか判定させる
-    // start関数を参考にすれば実装できると思う！
-    return inference.length !== 0;
+  const infer = async (
+    inference: string,
+    explanation: string,
+  ): Promise<boolean> => {
+    let res: any;
+    try {
+      res = await axios.post("/api/inference");
+    } catch (e) {
+      if (axios.isAxiosError(e)) throw new Error(e.response!.data.message);
+      console.error(e);
+      throw new Error("Unknown Error");
+    }
+
+    const isCorrect = res.data.isCorrect;
+
+    console.log("Inference is correct:", isCorrect);
+
+    return isCorrect;
   };
 
   /**
