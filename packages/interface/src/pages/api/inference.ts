@@ -60,6 +60,14 @@ export default async function handler(
       }
     }
   }
+  let isCorrect;
+  if (answer.toLowerCase() === "true") {
+    isCorrect = true;
+  } else if (answer.toLowerCase() === "false") {
+    isCorrect = false;
+  } else {
+    return res.status(400).json({ message: "Invalid answer from AI" });
+  }
 
-  return res.status(200).json({ answer });
+  return res.status(200).json({ isCorrect });
 }

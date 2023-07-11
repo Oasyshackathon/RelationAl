@@ -25,5 +25,11 @@ export const getIsCorrect = (
   inference: string,
   explanation: string,
 ): string => {
-  return `"${inference}"と"${explanation}"を比較し、内容が似ている場合は"True"を似ていない場合は"False"を返してください`;
+  return `When comparing "${inference}" and "${explanation}", please consider the following conditions:
+
+  1. Whether they mention the same information or theme.
+  2. Whether they share the same opinion or perspective.
+  3. Whether they are based on the same facts, data, or evidence.
+  
+  Based on these conditions, if you think the content of "${inference}" and "${explanation}" is similar, return "True". If you think they are not similar, return "False". Specifically, please respond in the form of "True" or "False".`;
 };
