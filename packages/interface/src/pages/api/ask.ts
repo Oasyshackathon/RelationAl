@@ -22,12 +22,10 @@ export default async function handler(
     const question = req.body.question;
     const random = Math.floor(Math.random() * 2);
 
-    return res
-      .status(200)
-      .json({
-        answer:
-          question === "" ? "わかりません" : random === 1 ? "はい" : "いいえ",
-      });
+    return res.status(200).json({
+      answer:
+        question === "" ? "わかりません" : random === 1 ? "はい" : "いいえ",
+    });
   }
 
   const question = req.body.question;

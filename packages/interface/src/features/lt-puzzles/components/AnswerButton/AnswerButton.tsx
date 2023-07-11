@@ -24,7 +24,7 @@ export const AnswerButton = ({ className }: AnswerButtonProps) => {
     setLoading(true);
     let isAnswer = false;
     try {
-      isAnswer = await ltPuzzleController.infer(ltPuzzle.inference);
+      isAnswer = await ltPuzzleController.infer(ltPuzzle.inference, ltPuzzle.explanation);
     } catch (e) {
       console.error(e);
       alert("通信失敗。再実行してください。\n\n理由: " + e);
