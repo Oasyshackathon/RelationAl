@@ -8,5 +8,8 @@
   "editor.codeActionsOnSave": {
     "source.addMissingImports": true,
     "source.fixAll": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "ms-vsliveshare.vsliveshare"
   }
 }

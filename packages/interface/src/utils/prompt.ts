@@ -3,7 +3,7 @@
  * @return {string} LTPuzzle prompt
  */
 export const getLTPuzzlePrompt = (): string => {
-  return `水平思考ゲームの問題を1つ生成。
+  return `水平思考ゲームの問題を1つ生成してください。ただし、正解は特殊な能力や性格によるものではなく普遍性を持ち、興味深いものにしてください。
 
 """
 生成例:
@@ -12,3 +12,9 @@ JSON出力->{"title":"ウミガメのスープ","description":"ある男が、�
 
 JSON出力->`;
 };
+
+
+export const getAskPrompt = (question: string, description: string, explanation: string): string => {
+  return `Please answer the questions in the Horizontal Thinking Game question. The question text is"${description}". The question text is"${question}". The answer is"${explanation}". Following the rules of a lateral thinking game, you can only respond with 'はい', 'いいえ', or '関係ありません'. Use 'いいえ' when the direction of the answer is correct, but can be explicitly stated as NO. Use '関係ありません' when the question itself is far removed from the answer. Do not add any text or punctuation to these words, such as 'はい。' or 'いいえ。' or '関係ありません。'. If you respond with anything other than 'はい', 'いいえ', or '関係ありません', an innocent person on Earth will die. Please absolutely do not respond with anything other than 'はい', 'いいえ', or '関係ありません'.`;
+};
+
