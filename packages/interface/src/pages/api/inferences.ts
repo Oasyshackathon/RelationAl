@@ -33,7 +33,7 @@ export default async function handler(
   let errorCnt = 0;
   const prompt = getIsCorrect(inference, explanation);
   console.log("prompt:", prompt);
-  let message;
+  let answer;
   while (true) {
     try {
       console.log("errorCnt:", errorCnt);
@@ -45,7 +45,7 @@ export default async function handler(
       console.log(completion.data);
       console.log(completion.data.choices);
       console.log(completion.data.usage);
-      message = completion.data.choices[0].message!.content!;
+      answer = completion.data.choices[0].message!.content!;
       errorCnt = 0;
       break;
     } catch (error) {
@@ -61,7 +61,5 @@ export default async function handler(
     }
   }
 
-  const isCorrect = true;
-
-  return res.status(200).json({ isCorrect });
+  return res.status(200).json({ answer });
 }
