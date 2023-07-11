@@ -24,7 +24,7 @@ export const SendButton = ({ className }: SendButtonProps) => {
     setDisable(true);
     setLoading(true);
     try {
-      await ltPuzzleController.ask(ltPuzzle.question);
+      await ltPuzzleController.ask(ltPuzzle.question, ltPuzzle.description, ltPuzzle.explanation);
     } catch (e) {
       console.error(e);
       if (e instanceof Error)

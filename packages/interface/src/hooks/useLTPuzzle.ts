@@ -6,7 +6,11 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 
 export interface LTPuzzleController {
   start: () => Promise<void>;
-  ask: (inference: string) => Promise<void>;
+  ask: (
+    question: string,
+    explanation: string,
+    description: string,
+  ) => Promise<void>;
   infer: (inference: string, explanation: string) => Promise<boolean>;
   mint: (tokenId: BigInt) => Promise<void>;
   reset: () => void;
@@ -118,7 +122,10 @@ export const useLTPuzzleController = (): LTPuzzleController => {
   ): Promise<boolean> => {
     let res: any;
     try {
-      res = await axios.post("/api/inference");
+      res = await axios.post("/api/inference", {
+        inference,
+        explanation,
+      });
     } catch (e) {
       if (axios.isAxiosError(e)) throw new Error(e.response!.data.message);
       console.error(e);
