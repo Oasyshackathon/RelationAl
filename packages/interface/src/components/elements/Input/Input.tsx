@@ -7,6 +7,8 @@ export type InputProps = {
   placeholder?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
+  onCompositionStart?: (event: React.CompositionEvent<HTMLInputElement>) => void;
+  onCompositionEnd?: (event: React.CompositionEvent<HTMLInputElement>) => void;
 } & BaseProps;
 
 /**
@@ -19,6 +21,8 @@ export const Input = ({
   placeholder,
   onChange,
   onKeyDown,
+  onCompositionStart,
+  onCompositionEnd,
 }: InputProps) => {
   return (
     <input
@@ -26,6 +30,8 @@ export const Input = ({
       value={value}
       onChange={onChange}
       onKeyDown={onKeyDown}
+      onCompositionStart={onCompositionStart}
+      onCompositionEnd={onCompositionEnd}
       placeholder={placeholder}
       className={clsx(className, "focus:outline-none", "focus:border-none")}
     />

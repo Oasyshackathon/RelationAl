@@ -1,3 +1,4 @@
+import React from "react";
 import { Input } from "@/components/elements/Input/Input";
 import { SendButton } from "@/features/lt-puzzles/components/SendButton";
 import { useLTPuzzleState } from "@/hooks/useLTPuzzle";
@@ -15,13 +16,22 @@ export const QuestionInput = ({ className }: QuestionInputProps) => {
   const [ltPuzzle, ltPuzzleController] = useLTPuzzleState();
   const { submitQuestion } = useSubmitQuestion();
   const input = "はい / いいえ で答えられる質問";
+  const [composing, setComposing] = React.useState(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     ltPuzzleController.setQuestion(event.target.value);
   };
 
+  const handleCompositionStart = () => {
+    setComposing(true);
+  };
+
+  const handleCompositionEnd = () => {
+    setComposing(false);
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && !composing) {
       event.preventDefault();
       submitQuestion();
     }
@@ -43,6 +53,8 @@ export const QuestionInput = ({ className }: QuestionInputProps) => {
         className={clsx("bg-primary-700", "w-[100%]")}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd} 
       />
       <SendButton />
     </div>
