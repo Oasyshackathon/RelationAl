@@ -19,6 +19,7 @@ export function useSubmitQuestion() {
         ltPuzzle.description,
         ltPuzzle.explanation,
       );
+      ltPuzzleController.setQuestion("");
     } catch (e) {
       console.error(e);
       if (e instanceof Error)
